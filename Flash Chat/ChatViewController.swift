@@ -37,7 +37,7 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITextFieldDe
         //TODO: Set the tapGesture here:
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tableViewTapped))
         
-        messageTableView.addGestureRecognizer(<#T##gestureRecognizer: UIGestureRecognizer##UIGestureRecognizer#>)
+        messageTableView.addGestureRecognizer(tapGesture)
         
 
         //TODO: Register your MessageCell.xib file here:
@@ -73,7 +73,7 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITextFieldDe
     
     
     //TODO: Declare tableViewTapped here:
-    func tableViewTapped(){
+    @objc func tableViewTapped(_ tapGesture: UITapGestureRecognizer){
         messageTextfield.endEditing(true)
     }
     
