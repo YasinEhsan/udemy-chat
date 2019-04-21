@@ -43,7 +43,8 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITextFieldDe
         //TODO: Register your MessageCell.xib file here:
         messageTableView.register(UINib(nibName: "MessageCell", bundle: nil), forCellReuseIdentifier: "customMessageCell")
         
-         configureTableView()
+        configureTableView()
+        retrieveMessages()
     }
 
     ///////////////////////////////////////////
@@ -160,7 +161,20 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITextFieldDe
         let messageDB = Database.database().reference().child("Messages")
         
         messageDB.observe(.childAdded) { (snapshot) in
-            <#code#>
+            
+            let snapshotValue = snapshot.value as! Dictionary<String, String>
+            
+            let text = snapshotValue["MessageBody"]!
+            let sender = snapshotValue["Sender"]!
+            
+            let message = Message()
+            message.messageBody = text
+            message.sender = sender
+            
+            self.messageArray.append(message)
+            
+            self.configureTableView()
+            
         }
     }
     
