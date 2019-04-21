@@ -13,7 +13,7 @@ import Firebase
 class ChatViewController: UIViewController, UITableViewDataSource, UITextFieldDelegate {
     
     // Declare instance variables here
-
+    var messageArray : [Message] = [Message]()
     
     // We've pre-linked the IBOutlets
     @IBOutlet var heightConstraint: NSLayoutConstraint!
@@ -142,13 +142,27 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITextFieldDe
             (error, reference) in
             
             if error != nil{
-                print
+                print(error!)
+            }
+            else{
+                print("message saved successfully")
+                
+                self.messageTextfield.isEnabled = true
+                self.sendButton.isEnabled = true
+                self.messageTextfield.text = ""
             }
         }
     }
     
     //TODO: Create the retrieveMessages method here:
-    
+    func retrieveMessages(){
+        
+        let messageDB = Database.database().reference().child("Messages")
+        
+        messageDB.observe(.childAdded) { (snapshot) in
+            <#code#>
+        }
+    }
     
 
     
