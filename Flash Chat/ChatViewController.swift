@@ -58,9 +58,13 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITextFieldDe
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "customMessageCell", for: indexPath)as! CustomMessageCell
         
-        let messageArray = ["First Message", "Second MEssage", "Third Message"]
         
-        cell.messageBody.text = messageArray[indexPath.row]
+        cell.messageBody.text = messageArray[indexPath.row].messageBody
+        cell.senderUsername.text = messageArray[indexPath.row].sender
+        
+        cell.avatarImageView.image = UIImage(named: "kaba")
+        
+        
         
         return cell
         
@@ -69,7 +73,7 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITextFieldDe
     
     //TODO: Declare numberOfRowsInSection here:
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return messageArray.count
     }
     
     
@@ -174,6 +178,7 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITextFieldDe
             self.messageArray.append(message)
             
             self.configureTableView()
+            self.messageTableView.reloadData()
             
         }
     }
