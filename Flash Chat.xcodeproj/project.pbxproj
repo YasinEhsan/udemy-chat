@@ -128,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				63E28B241B9A335300FBF6E0 /* Message.swift */,
+				7C88695B226C863C006A81D8 /* New Group */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -138,8 +139,14 @@
 				9A7CCAE9EBDC7896244B4E85 /* Pods-Flash Chat.debug.xcconfig */,
 				D335B23EAA7F98734AF8F8A3 /* Pods-Flash Chat.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		7C88695B226C863C006A81D8 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "New Group";
 			sourceTree = "<group>";
 		};
 		C45DE58DEC4CD6A81C5E9742 /* Frameworks */ = {
